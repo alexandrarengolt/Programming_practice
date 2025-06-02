@@ -1,4 +1,4 @@
-#include "../quadratic_equation.h"
+#include "../quadratic_equations.h"
 #include <assert.h>
 #include <math.h>
 #include <stdio.h>

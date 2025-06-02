@@ -61,7 +61,6 @@ void test_integral_6() {
 }
 
 int main() {
-    
   test_integral_1();
   test_integral_2();
   test_integral_3();

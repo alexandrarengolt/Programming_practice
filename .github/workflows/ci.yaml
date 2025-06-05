@@ -14,8 +14,18 @@ jobs:
       - name: Install dependencies
         run: sudo apt update && sudo apt install -y clang-format make
 
-      - name: Check formatting
+      - name: lab1 - Check formatting
+        working-directory: lab1
         run: make check_fmt
 
-      - name: Run tests
+      - name: lab1 - Run tests
+        working-directory: lab1
+        run: make run_tests
+
+      - name: lab2 - Check formatting
+        working-directory: lab2
+        run: make check_fmt
+
+      - name: lab2 - Run tests
+        working-directory: lab2
         run: make run_tests

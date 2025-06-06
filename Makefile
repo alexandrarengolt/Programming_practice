@@ -88,8 +88,8 @@ arraylist_test: arraylist_test.o arraylist.a
 hashtable_test.o: lab2/tests/hashtable_test.c lab2/hashtable.h
 	gcc -g -c lab2/tests/hashtable_test.c -o hashtable_test.o
 
-hashtable_test: hashtable_test.o hashtable.a
-	gcc -g -static -o hashtable_test hashtable_test.o hashtable.a 
+hashtable_test: hashtable_test.o hashtable.a pool_allocator.a
+	gcc -g -static -o hashtable_test hashtable_test.o hashtable.a  pool_allocator.a
 
 linear_allocator_test.o: lab2/tests/linear_allocator_test.c lab2/linear_allocator.h
 	gcc -g -c lab2/tests/linear_allocator_test.c -o linear_allocator_test.o

@@ -14,8 +14,9 @@ typedef struct {
   Block *mem_block;
 } PoolAllocator;
 
-void pool_alloc_init(PoolAllocator *allocator, size_t count, size_t size_per_block);
-void* pool_alloc(PoolAllocator *allocator);
+void pool_alloc_init(PoolAllocator *allocator, size_t count,
+                     size_t size_per_block);
+void *pool_alloc(PoolAllocator *allocator);
 void pool_free(PoolAllocator *allocator, void *ptr);
 void pool_deinit(PoolAllocator *allocator);
 

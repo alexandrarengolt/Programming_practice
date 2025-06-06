@@ -31,6 +31,30 @@ stack.o: lab1/stack.c lab1/stack.h
 stack.a: stack.o
 	ar rc stack.a stack.o
 
+arraylist.o: lab2/arraylist.c lab2/arraylist.h
+	gcc -g -c lab2/arraylist.c -o arraylist.o
+
+arraylist.a: arraylist.o
+	ar rc arraylist.a arraylist.o
+
+hashtable.o: lab2/hashtable.c lab2/hashtable.h
+	gcc -g -c lab2/hashtable.c -o hashtable.o
+
+hashtable.a: hashtable.o
+	ar rc hashtable.a hashtable.o
+
+linear_allocator.o: lab2/linear_allocator.c lab2/linear_allocator.h
+	gcc -g -c lab2/linear_allocator.c -o linear_allocator.o
+
+linear_allocator.a: linear_allocator.o
+	ar rc linear_allocator.a linear_allocator.o
+
+pool_allocator.o: lab2/pool_allocator.c lab2/pool_allocator.h
+	gcc -g -c lab2/pool_allocator.c -o pool_allocator.o
+
+pool_allocator.a: pool_allocator.o
+	ar rc pool_allocator.a pool_allocator.o
+
 quadratic_equations_test.o: lab1/tests/quadratic_equations_test.c lab1/quadratic_equations.h
 	gcc -g -c lab1/tests/quadratic_equations_test.c -o quadratic_equations_test.o -lm
 
@@ -55,6 +79,30 @@ stack_test.o: lab1/tests/stack_test.c lab1/stack.h
 stack_test: stack_test.o stack.a
 	gcc -g -static -o stack_test stack_test.o stack.a 
 
+arraylist_test.o: lab2/tests/arraylist_test.c lab2/arraylist.h
+	gcc -g -c lab2/tests/arraylist_test.c -o arraylist_test.o
+
+arraylist_test: arraylist_test.o arraylist.a
+	gcc -g -static -o arraylist_test arraylist_test.o arraylist.a 
+
+hashtable_test.o: lab2/tests/hashtable_test.c lab2/hashtable.h
+	gcc -g -c lab2/tests/hashtable_test.c -o hashtable_test.o
+
+hashtable_test: hashtable_test.o hashtable.a
+	gcc -g -static -o hashtable_test hashtable_test.o hashtable.a 
+
+linear_allocator_test.o: lab2/tests/linear_allocator_test.c lab2/linear_allocator.h
+	gcc -g -c lab2/tests/linear_allocator_test.c -o linear_allocator_test.o
+
+linear_allocator_test: linear_allocator_test.o linear_allocator.a
+	gcc -g -static -o linear_allocator_test linear_allocator_test.o linear_allocator.a 
+
+pool_allocator_test.o: lab2/tests/pool_allocator_test.c lab2/pool_allocator.h
+	gcc -g -c lab2/tests/pool_allocator_test.c -o pool_allocator_test.o
+
+pool_allocator_test: pool_allocator_test.o pool_allocator.a
+	gcc -g -static -o pool_allocator_test pool_allocator_test.o pool_allocator.a 
+
 integral: integral.o integral.a
 	gcc -g -static -o integral integral.o integral.a -lm
 	./integral
@@ -71,8 +119,12 @@ stack: stack.o stack.a
 	gcc -g -static -o stack stack.o stack.a
 	./stack
 
-run_tests: quadratic_equations_test integral_test linked_list_test stack_test
+run_tests: quadratic_equations_test integral_test linked_list_test stack_test arraylist_test hashtable_test linear_allocator_test pool_allocator_test
 	./quadratic_equations_test
 	./integral_test
 	./linked_list_test
 	./stack_test
+	./arraylist_test
+	./hashtable_test
+	./linear_allocator_test
+	./pool_allocator_test

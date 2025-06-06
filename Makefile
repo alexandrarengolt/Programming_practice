@@ -82,8 +82,8 @@ stack_test: stack_test.o stack.a
 arraylist_test.o: lab2/tests/arraylist_test.c lab2/arraylist.h
 	gcc -g -c lab2/tests/arraylist_test.c -o arraylist_test.o
 
-arraylist_test: arraylist_test.o arraylist.a
-	gcc -g -static -o arraylist_test arraylist_test.o arraylist.a 
+arraylist_test: arraylist_test.o arraylist.a linear_allocator.a
+	gcc -g -static -o arraylist_test arraylist_test.o arraylist.a linear_allocator.a
 
 hashtable_test.o: lab2/tests/hashtable_test.c lab2/hashtable.h
 	gcc -g -c lab2/tests/hashtable_test.c -o hashtable_test.o

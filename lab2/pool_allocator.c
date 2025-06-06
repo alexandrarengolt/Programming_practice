@@ -3,11 +3,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void pool_alloc_init(PoolAllocator *allocator, size_t block_amount, size_t size_per_block) {
+void pool_alloc_init(PoolAllocator *allocator, size_t block_amount,
+                     size_t size_per_block) {
   allocator->mem_block = NULL;
   allocator->block_amount = block_amount;
   allocator->size_per_block = size_per_block;
-  allocator->memory = (char *)malloc((sizeof(Block) + size_per_block) * block_amount);
+  allocator->memory =
+      (char *)malloc((sizeof(Block) + size_per_block) * block_amount);
 
   if (!allocator->memory) {
     return;
@@ -23,7 +25,7 @@ void pool_alloc_init(PoolAllocator *allocator, size_t block_amount, size_t size_
   }
 }
 
-void* pool_alloc(PoolAllocator *allocator) {
+void *pool_alloc(PoolAllocator *allocator) {
   if (!allocator->mem_block) {
     return NULL;
   }
